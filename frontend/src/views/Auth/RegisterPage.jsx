@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
 import { redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { RegisterFormSchema } from '../utils/validation/register';
-import RegisterForm from '../components/form/RegisterForm';
+import { RegisterFormSchema } from '../../utils/validation/auth/register';
+import RegisterForm from '../../components/form/RegisterForm';
 
 function RegisterPage() {
   const dispatch = useDispatch();
