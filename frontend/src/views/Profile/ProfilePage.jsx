@@ -7,10 +7,9 @@ import { userProfileAction } from '../../redux/slices/usersSlices';
 export default function ProfilePage(props) {
   const dispatch = useDispatch();
   const id = props.computedMatch.params.id;
-  //History
-  const history = useNavigate();
 
-  //User data from store
+  const navigate = useNavigate();
+
   const users = useSelector((state) => state.users);
   const {
     profile,
@@ -22,14 +21,12 @@ export default function ProfilePage(props) {
     userAuth,
   } = users;
 
-  //fetch user profile
   useEffect(() => {
     dispatch(userProfileAction(id));
   }, [id, dispatch, followed, unFollowed]);
 
   const sendMailNavigate = () => {
-    history.push({
-      pathname: '/send-mail',
+    navigate('/send-mail', {
       state: {
         email: profile?.email,
         id: profile?._id,

@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import React from 'react';
 
 import { useDispatch } from 'react-redux';
-import { redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import UpdateProfilePhotoForm from '../../components/form/UpdateProfilePhotoForm';
 import { uploadProfilePhotoAction } from '../../redux/slices/usersSlices';
 import { UpdatePhotoProfileformSchema } from '../../utils/validation/profile/updatephotoprofile';
@@ -24,7 +24,7 @@ export default function UploadProfilePhotoPage() {
   const { profilePhoto, loading, appErr, serverErr, userAuth } = users;
 
   if (profilePhoto) {
-    <redirect to={`/profile/${userAuth?._id}`} />;
+    <Navigate to={`/profile/${userAuth?._id}`} />;
   }
 
   return (

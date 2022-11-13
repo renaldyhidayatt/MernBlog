@@ -1,5 +1,5 @@
 import { useFormik } from 'formik';
-import { redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RegisterFormSchema } from '../../utils/validation/auth/register';
 import RegisterForm from '../../components/form/RegisterForm';
@@ -24,7 +24,7 @@ function RegisterPage() {
   const { loading, appErr, serverErr, registered } = storeData;
 
   if (registered) {
-    return <redirect to="/" />;
+    return <Navigate to="/" />;
   }
 
   return (

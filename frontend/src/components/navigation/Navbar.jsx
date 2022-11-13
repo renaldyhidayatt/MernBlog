@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import AccountVerificationAlertWarning from './alerts/AccountVerificationAlertWarning';
-import AccountVerificationSuccessAlert from './alerts/AccountVerificationSuccessAlert';
-import AdminNavbar from './navigation/AdminNavbar';
-import PrivateNavbar from './navigation/PrivateNavbar';
-import PublicNavbar from './navigation/PublicNavbar';
+import AccountVerificationAlertWarning from '../alerts/AccountVerificationAlertWarning';
+import AccountVerificationSuccessAlert from '../alerts/AccountVerificationSuccessAlert';
+import AdminNavbar from './AdminNavbar';
+import PrivateNavbar from './PrivateNavbar';
+import PublicNavbar from './PublicNavbar';
 
 const Navbar = () => {
   const state = useSelector((state) => state.users);

@@ -1,7 +1,7 @@
 import LoginForm from '../../components/form/LoginForm';
 import { LoginformSchema } from '../../utils/validation/auth/login';
 import poster from '../../assets/poster.png';
-
+import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import { loginUserAction } from '../../redux/slices/usersSlices';
@@ -21,7 +21,7 @@ function Loginpage() {
 
   const store = useSelector((state) => state?.users);
   const { userAuth, loading, serverErr, appErr } = store;
-  if (userAuth) return <Redirect to={`/profile/${userAuth?._id}`} />;
+  if (userAuth) return <Navigate to={`/profile/${userAuth?._id}`} />;
 
   return (
     <>

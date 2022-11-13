@@ -6,7 +6,7 @@ import {
   fetchUserDetailsAction,
 } from '../../redux/slices/usersSlices';
 import { UpdateProfileformSchema } from '../../utils/validation/profile/updateprofile';
-import { redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import UpdateProfileForm from '../../components/form/UpdateProfileForm';
 
 function UpdateProfilePage({
@@ -37,7 +37,7 @@ function UpdateProfilePage({
     validationSchema: UpdateProfileformSchema,
   });
   if (isUpdated) {
-    return <redirect to={`/profile/${id}`} />;
+    return <Navigate to={`/profile/${id}`} />;
   }
 
   return (

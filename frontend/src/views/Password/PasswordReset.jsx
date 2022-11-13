@@ -2,11 +2,14 @@ import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import PasswordResetForm from '../../components/form/PasswordResetForm';
 import { PasswordResetFormSchema } from '../../utils/validation/password/passwordreset';
+import { useNavigate } from 'react-router-dom';
 
 function PasswordReset(props) {
   const token = props.match.params.token;
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -27,7 +30,7 @@ function PasswordReset(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      if (passwordReset) props.history.push('/login');
+      if (passwordReset) navigate('/login');
     }, 5000);
   }, [passwordReset]);
 
@@ -66,3 +69,5 @@ function PasswordReset(props) {
     </div>
   );
 }
+
+export default PasswordReset;

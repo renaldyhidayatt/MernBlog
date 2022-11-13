@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { updatePasswordAction } from '../../redux/slices/usersSlices';
 import { UpdatePasswordSchema } from '../../utils/validation/password/updatepassword';
-import { redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import UpdatePasswordForm from '../../components/form/UpdatePasswordForm';
 
 function UpdatePassword() {
@@ -22,7 +22,7 @@ function UpdatePassword() {
   const { isPasswordUpdated, loading, appErr, serverErr, userAuth } = users;
 
   //redirect
-  if (isPasswordUpdated) return <redirect to={`profile/${userAuth?._id}`} />;
+  if (isPasswordUpdated) return <Navigate to={`profile/${userAuth?._id}`} />;
 
   return (
     <div className="min-h-screen bg-gray-700  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
