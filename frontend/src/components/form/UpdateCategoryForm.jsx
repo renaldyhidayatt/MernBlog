@@ -1,6 +1,9 @@
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
+import { useDispatch } from 'react-redux';
+import { deleteCategoriesAction } from '../../redux/slices/categorySlices';
 
 export default function UpdateCategoryForm(props) {
+  const dispatch = useDispatch();
   return (
     <form onSubmit={props.formik.handleSubmit} className="mt-8 space-y-6">
       <input type="hidden" name="remember" defaultValue="true" />
@@ -54,7 +57,7 @@ export default function UpdateCategoryForm(props) {
                 Update Category
               </button>
               <button
-                onClick={() => dispatch(deleteCategoriesAction(id))}
+                onClick={() => dispatch(deleteCategoriesAction(props.id))}
                 type="submit"
                 className="group mt-2 relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >

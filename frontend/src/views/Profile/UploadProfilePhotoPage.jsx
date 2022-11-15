@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import UpdateProfilePhotoForm from '../../components/form/UpdateProfilePhotoForm';
 import { uploadProfilePhotoAction } from '../../redux/slices/usersSlices';

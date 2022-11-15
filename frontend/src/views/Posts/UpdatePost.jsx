@@ -1,7 +1,12 @@
 import { useFormik } from 'formik';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { updatePostAction } from '../../redux/slices/postSlices';
+import {
+  updatePostAction,
+  fetchPostDetailsAction,
+} from '../../redux/slices/postSlices';
+import { UpdatePostformSchema } from '../../utils/validation/posts/updatepost';
 
 export default function UpdatePost(props) {
   const {
@@ -37,7 +42,7 @@ export default function UpdatePost(props) {
       };
       dispatch(updatePostAction(data));
     },
-    validationSchema: formSchema,
+    validationSchema: UpdatePostformSchema,
   });
   if (isUpdated) {
     return <Navigate to="/posts" />;

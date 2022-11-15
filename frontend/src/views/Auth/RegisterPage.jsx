@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RegisterFormSchema } from '../../utils/validation/auth/register';
 import RegisterForm from '../../components/form/RegisterForm';
+import { registerUserAction } from '../../redux/slices/usersSlices';
 
 function RegisterPage() {
   const dispatch = useDispatch();

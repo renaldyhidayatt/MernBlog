@@ -1,11 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchCategoriesAction } from '../../redux/slices/categorySlices';
 import { PencilIcon } from '@heroicons/react/24/outline';
 import DateFormatter from '../../utils/DateFormatter';
 import LoadingComponent from '../../utils/LoadingComponent';
+import { useEffect } from 'react';
 
 export default function CategoryList() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCategoriesAction());
   }, [dispatch]);

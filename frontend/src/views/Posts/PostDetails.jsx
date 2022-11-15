@@ -7,7 +7,9 @@ import {
   deletePostAction,
 } from '../../redux/slices/postSlices';
 import CreateComment from '../../components/comment/CreateComment';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import CommentsList from '../../components/comment/CommentsList';
 
 export default function PostDetails({
   match: {
@@ -21,6 +23,7 @@ export default function PostDetails({
 
   const comment = useSelector((state) => state.comment);
   const { commentCreated, commentDeleted } = comment;
+
   useEffect(() => {
     dispatch(fetchPostDetailsAction(id));
   }, [id, dispatch, commentCreated, commentDeleted]);

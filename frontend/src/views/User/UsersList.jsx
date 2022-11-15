@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsersAction } from '../../redux/slices/usersSlices';
 import UserListItem from '../../components/user/UserListItem';
 import LoadingComponent from '../../utils/LoadingComponent';
 

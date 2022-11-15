@@ -9,6 +9,8 @@ export default function CreatePost() {
   const dispatch = useDispatch();
 
   const post = useSelector((state) => state?.post);
+  const { isCreated, loading, appErr, serverErr } = post;
+
   const formik = useFormik({
     initialValues: {
       title: '',

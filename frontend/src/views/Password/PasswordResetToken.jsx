@@ -26,9 +26,9 @@ function PasswordResetToken() {
             Password Reset Form
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            <a className="font-medium text-indigo-600 hover:text-indigo-500">
+            <div className="font-medium text-indigo-600 hover:text-indigo-500">
               Reset your password if you have forgotten
-            </a>
+            </div>
           </p>
         </div>
         {/* Err msg */}

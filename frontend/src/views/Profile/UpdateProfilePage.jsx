@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   updateUserAction,
   fetchUserDetailsAction,

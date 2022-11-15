@@ -1,9 +1,14 @@
 import { BookOpenIcon } from '@heroicons/react/24/solid';
 import { useFormik } from 'formik';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import UpdateCategoryForm from '../../components/form/UpdateCategoryForm';
-import { fetchCategoryAction } from '../../redux/slices/categorySlices';
+import {
+  fetchCategoryAction,
+  updateCategoriesAction,
+} from '../../redux/slices/categorySlices';
+import { UpdateCategoryFormSchema } from '../../utils/validation/category/updatecategory';
 
 export default function UpdateCategoryPage({
   computedMatch: {
@@ -11,6 +16,7 @@ export default function UpdateCategoryPage({
   },
 }) {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCategoryAction(id));
   }, []);
@@ -27,7 +33,7 @@ export default function UpdateCategoryPage({
     onSubmit: (values) => {
       dispatch(updateCategoriesAction({ title: values.title, id }));
     },
-    validationSchema: formSchema,
+    validationSchema: UpdateCategoryFormSchema,
   });
 
   if (isEdited || isDeleted) {

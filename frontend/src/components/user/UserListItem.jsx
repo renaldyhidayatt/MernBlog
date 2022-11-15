@@ -1,5 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import {
+  unBlockUserAction,
+  blockUserAction,
+} from '../../redux/slices/usersSlices';
+import { InboxIcon } from '@heroicons/react/24/solid';
 
 function UserListItem(user) {
   const dispatch = useDispatch();
@@ -77,7 +82,7 @@ function UserListItem(user) {
               onClick={sendMailNavigator}
               className="inline-flex  justify-center bg-green-700 px-2   border border-yellow-700 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
             >
-              <MailIcon
+              <InboxIcon
                 className="-ml-1 mr-2 h-5 w-5 text-gray-200"
                 aria-hidden="true"
               />

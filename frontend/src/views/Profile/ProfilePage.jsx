@@ -1,8 +1,15 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import DateFormatter from '../../utils/DateFormatter';
 import LoadingComponent from '../../utils/LoadingComponent';
-import { userProfileAction } from '../../redux/slices/usersSlices';
+import {
+  userProfileAction,
+  unfollowUserAction,
+  followUserAction,
+} from '../../redux/slices/usersSlices';
+import { useEffect } from 'react';
+import { HeartIcon, FaceFrownIcon, UserIcon } from '@heroicons/react/24/solid';
+import { EyeIcon, ArrowUpTrayIcon } from '@heroicons/react/24/solid';
 
 export default function ProfilePage(props) {
   const dispatch = useDispatch();
@@ -117,7 +124,7 @@ export default function ProfilePage(props) {
                                   to={`/upload-profile-photo`}
                                   className="inline-flex justify-center w-48 px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                                 >
-                                  <UploadIcon
+                                  <ArrowUpTrayIcon
                                     className="-ml-1 mr-2 h-5 w-5 text-gray-400"
                                     aria-hidden="true"
                                   />
@@ -137,7 +144,7 @@ export default function ProfilePage(props) {
                                       }
                                       className="mr-2 inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                                     >
-                                      <EmojiSadIcon
+                                      <FaceFrownIcon
                                         className="-ml-1 mr-2 h-5 w-5 text-gray-400"
                                         aria-hidden="true"
                                       />
@@ -186,7 +193,7 @@ export default function ProfilePage(props) {
                                 onClick={sendMailNavigate}
                                 className="inline-flex justify-center bg-indigo-900 px-4 py-2 border border-yellow-700 shadow-sm text-sm font-medium rounded-md text-gray-700  hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                               >
-                                <MailIcon
+                                <ArrowUpTrayIcon
                                   className="-ml-1 mr-2 h-5 w-5 text-gray-200"
                                   aria-hidden="true"
                                 />

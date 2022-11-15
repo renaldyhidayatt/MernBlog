@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { PlusIcon, LockClosedIcon } from '@heroicons/react/24/solid';
 import { useDispatch } from 'react-redux';
+import { logoutAction } from '../../redux/slices/usersSlices';
 
 const navigation = [
   { name: 'Home', href: '/', current: true },

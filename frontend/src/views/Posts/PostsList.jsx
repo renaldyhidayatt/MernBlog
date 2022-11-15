@@ -11,8 +11,9 @@ import {
   toggleAddLikeToPost,
   toggleAddDisLikesToPost,
 } from '../../redux/slices/postSlices';
-import DateFormatter from '../../utils/DateFormatter';
-import LoadingComponent from '../../utils/LoadingComponent';
+import { fetchCategoriesAction } from '../../redux/slices/categorySlices';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function PostsList() {
   const post = useSelector((state) => state?.post);

@@ -1,9 +1,13 @@
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { UpdateCommentFormSchema } from '../../utils/validation/comment/updatecomment';
 import { Navigate } from 'react-router-dom';
-import UpdateCategoryForm from '../form/UpdateCategoryForm';
-import { updateCommentAction } from '../../redux/slices/commentSlices';
+import UpdateCategoryForm from '../../components/form/UpdateCategoryForm';
+import {
+  updateCommentAction,
+  fetchCommentAction,
+} from '../../redux/slices/commentSlices';
+import { useEffect } from 'react';
 
 export default function UpdateComment({
   computedMatch: {

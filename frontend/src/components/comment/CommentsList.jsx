@@ -1,4 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Moment from 'react-moment';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { deleteCommentAction } from '../../redux/slices/commentSlices';
 
 export default function CommentsList({ comments }) {
   const user = useSelector((state) => state?.users);
@@ -52,7 +56,7 @@ export default function CommentsList({ comments }) {
                             to={`/update-comment/${comment?._id}`}
                             class="p-3"
                           >
-                            <PencilAltIcon class="h-5 mt-3 text-yellow-300" />
+                            <PencilIcon class="h-5 mt-3 text-yellow-300" />
                           </Link>
                           <button
                             onClick={() =>

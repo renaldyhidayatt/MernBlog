@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createCategoryAction } from '../../redux/slices/categorySlices';
 import { useFormik } from 'formik';
 import { Navigate } from 'react-router-dom';
+import { CreateCategoryFormSchema } from '../../utils/validation/category/createcategory';
 import CreateCategoryForm from '../../components/form/CreateCategoryForm';
 
 export default function CreateCategoryPage(props) {
@@ -13,10 +14,9 @@ export default function CreateCategoryPage(props) {
       title: '',
     },
     onSubmit: (values) => {
-      //dispath the action
       dispatch(createCategoryAction(values));
     },
-    validationSchema: formSchema,
+    validationSchema: CreateCategoryFormSchema,
   });
 
   const state = useSelector((state) => state?.category);

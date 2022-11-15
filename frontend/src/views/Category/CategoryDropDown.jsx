@@ -47,3 +47,5 @@ function CategoryDropDownPage(props) {
     </div>
   );
 }
+
+export default CategoryDropDownPage;
